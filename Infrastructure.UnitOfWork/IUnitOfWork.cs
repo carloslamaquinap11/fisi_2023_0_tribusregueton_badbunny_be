@@ -13,8 +13,8 @@ namespace Infrastructure.UnitOfWork
         public IDentistaRepository DentistaRepository { get; }
         public IFacturaRepository FacturaRepository { get; }
         public IPacienteRepository PacienteRepository { get; }
-        public IFacturaRepository ServicioRepository { get; }
-        public IFacturaRepository ServicioCitaRepository { get; }
+        public IServicioRepository ServicioRepository { get; }
+        public IServicioCitaRepository ServicioCitaRepository { get; }
         public void Commit();
     }
 }
