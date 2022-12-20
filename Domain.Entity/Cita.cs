@@ -13,5 +13,7 @@ namespace Domain.Entity
         public int PacienteId { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
+        public String DescripcionCita { get; set; }
+        public String Localizacion { get; set; }
     }
 }
