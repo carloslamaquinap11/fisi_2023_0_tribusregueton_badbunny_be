@@ -15,7 +15,7 @@ namespace Infrastructure.Repository
         {
 
         }
-        public int DeleteById(string id)
+        public int DeleteById(int id)
         {
             return Connection.Delete<T>(id, transaction: Transaction);
         }
@@ -25,7 +25,7 @@ namespace Infrastructure.Repository
             return Connection.GetList<T>(null, transaction: Transaction);
         }
 
-        public T GetById(string id)
+        public T GetById(int id)
         {
             return Connection.Get<T>(id, transaction: Transaction);
         }

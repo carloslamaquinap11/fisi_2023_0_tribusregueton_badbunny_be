@@ -1,4 +1,5 @@
-﻿using Domain.Entity;
+﻿using Dapper;
+using Domain.Entity;
 using Infrastructure.Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace Infrastructure.Repository.Repository
         public PacienteRepository(IDbTransaction transaction) : base(transaction)
         {
 
+        }
+        public Paciente LogIn(Paciente paciente)
+        {
+            var linq = Connection.Query<Paciente>("SELECT * FROM Paciente WHERE Email=@Email AND Contrasena=@Contrasena", new { @Email = paciente.Email, @Contrasena = paciente.Contrasena },Transaction).ToList();
+            return linq.FirstOrDefault();
         }
     }
 }
