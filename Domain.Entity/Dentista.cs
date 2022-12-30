@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
+    [Table("DENTISTA")]
     public class Dentista
     {
+        [Key]
         public int DentistaId { get; set; }
         public string DNI { get; set; }
         public string Nombre { get; set; }
