@@ -28,11 +28,11 @@ namespace Application.Tellodent.Controllers
         }
 
         [HttpGet("LogIn")]
-        public Paciente LogIn(string email,string contrasena)
+        public IActionResult LogIn(string email,string contrasena)
         {
             var paciente = new Paciente { Email = email, Contrasena = contrasena };
             var resultado = unitOfWork.PacienteRepository.LogIn(paciente);
-            return resultado;
+            return Ok(resultado);
         }
 
         [HttpPost]

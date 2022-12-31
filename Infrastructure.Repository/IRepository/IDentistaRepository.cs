@@ -9,6 +9,6 @@ namespace Infrastructure.Repository.IRepository
 {
     public interface IDentistaRepository:IGenericRepository<Dentista>
     {
-
+        Dentista LogIn(Dentista dentista);
     }
 }

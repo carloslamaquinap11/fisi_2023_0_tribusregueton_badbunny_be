@@ -1,4 +1,5 @@
-﻿using Infrastructure.UnitOfWork;
+﻿using Domain.Entity;
+using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Tellodent.Controllers
@@ -18,6 +19,14 @@ namespace Application.Tellodent.Controllers
         {
             var dentista = unitOfWork.DentistaRepository.GetAll();
             return Ok(dentista);
+        }
+
+        [HttpGet("LogIn")]
+        public IActionResult LogIn(string email, string contrasena)
+        {
+            var dentista = new Dentista { Email = email, Contrasena = contrasena };
+            var resultado = unitOfWork.DentistaRepository.LogIn(dentista);
+            return Ok(resultado);
         }
     }
 }

@@ -19,7 +19,12 @@ namespace Infrastructure.Repository.Repository
         public Paciente LogIn(Paciente paciente)
         {
             var linq = Connection.Query<Paciente>("SELECT * FROM Paciente WHERE Email=@Email AND Contrasena=@Contrasena", new { @Email = paciente.Email, @Contrasena = paciente.Contrasena },Transaction).ToList();
-            return linq.FirstOrDefault();
+
+            if (linq.Count > 0)
+            {
+                return linq.FirstOrDefault();
+            }
+            return null;
         }
     }
 }

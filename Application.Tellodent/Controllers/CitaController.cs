@@ -20,5 +20,23 @@ namespace Application.Tellodent.Controllers
             var cita = unitOfWork.CitaRepository.GetAll();
             return Ok(cita);
         }
+
+        [HttpPost]
+        public IActionResult InsertCita(Cita cita)
+        {
+            cita.Estado = (int) KDAppointmentState.PORATENDER;
+            var citaux = unitOfWork.CitaRepository.Insert(cita);
+            unitOfWork.Commit();
+            return Ok(citaux);
+        }
+
+        [HttpPut]
+        public IActionResult CancelarCita(Cita cita)
+        {
+            cita.Estado = (int)KDAppointmentState.CANCELADO;
+            var citaux = unitOfWork.CitaRepository.Update(cita);
+            unitOfWork.Commit();
+            return Ok(citaux);
+        }
     }
 }
