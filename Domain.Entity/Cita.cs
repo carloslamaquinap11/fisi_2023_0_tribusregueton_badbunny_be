@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -19,5 +20,15 @@ namespace Domain.Entity
         public DateTime FechaFin { get; set; }
         public String DescripcionCita { get; set; }
         public String Localizacion { get; set; }
+        public int Estado { get; set; } 
+    }
+    public enum KDAppointmentState
+    { // 0: por atender, 1: atendido, 2: cancelado
+        [Description("PORATENDER")]
+        PORATENDER=0,
+        [Description("ATENDIDO")]
+        ATENDIDO =1,
+        [Description("CANCELADO")]
+        CANCELADO =2
     }
 }
