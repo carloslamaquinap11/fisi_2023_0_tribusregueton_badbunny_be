@@ -9,6 +9,6 @@ namespace Infrastructure.Repository.IRepository
 {
     public interface ICitaRepository:IGenericRepository<Cita>
     {
-
+        Cita ProximaCita(int idCliente);
     }
 }

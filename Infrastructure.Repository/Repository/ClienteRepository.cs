@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.Repository
 {
-    public class PacienteRepository:GenericRepository<Paciente>,IPacienteRepository
+    public class ClienteRepository : GenericRepository<Cliente>, IClienteRepository
     {
-        public PacienteRepository(IDbTransaction transaction) : base(transaction)
+        public ClienteRepository(IDbTransaction transaction) : base(transaction)
         {
 
         }
-        public Paciente LogIn(Paciente paciente)
+        public Cliente LogIn(Cliente cliente)
         {
-            var linq = Connection.Query<Paciente>("SELECT * FROM Paciente WHERE Email=@Email AND Contrasena=@Contrasena", new { @Email = paciente.Email, @Contrasena = paciente.Contrasena },Transaction).ToList();
+            var linq = Connection.Query<Cliente>("SELECT * FROM Paciente WHERE ClienteId = @ClienteId", new { @ClienteId = cliente.ClienteId},Transaction).ToList();
 
             if (linq.Count > 0)
             {

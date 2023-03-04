@@ -10,11 +10,12 @@ namespace Infrastructure.UnitOfWork
     public interface IUnitOfWork:IDisposable
     {
         public ICitaRepository CitaRepository { get; }
-        public IDentistaRepository DentistaRepository { get; }
-        public IFacturaRepository FacturaRepository { get; }
-        public IPacienteRepository PacienteRepository { get; }
+        public IDoctorRepository DoctorRepository { get; }
+
+        public IClienteRepository ClienteRepository { get; }
         public IServicioRepository ServicioRepository { get; }
         public IServicioCitaRepository ServicioCitaRepository { get; }
+        public IMostrarCitaActualClienteRepository MostrarCitaActualClienteRepository { get; }
         public void Commit();
     }
 }

@@ -11,9 +11,13 @@ namespace Domain.Entity
     [Table("SERVICIOCITA")]
     public class ServicioCita
     {
-        [Key] 
+        [Key]
+        public int ServiciocitaId { get; set; }
+        public int? CitaId { get; set; }
         public int ServicioId { get; set; }
-        public int CitaId { get; set; }
-        public string Diagnostico { get; set; }
+        public DateTime FechaServiciocita { get; set; }
+        public double PrecioServiciocita { get; set; }
+        public string Estado { get; set; }
+        public string descripcion { get; set; }
     }
 }

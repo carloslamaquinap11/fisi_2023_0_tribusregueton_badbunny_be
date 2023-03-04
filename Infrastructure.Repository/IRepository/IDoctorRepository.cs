@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.IRepository
 {
-    public interface IFacturaRepository : IGenericRepository<Factura>
+    public interface IDoctorRepository:IGenericRepository<Doctor>
     {
-
+        Doctor LogIn(Doctor dentista);
     }
 }

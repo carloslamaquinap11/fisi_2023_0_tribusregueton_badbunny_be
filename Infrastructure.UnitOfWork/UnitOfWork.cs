@@ -16,18 +16,19 @@ namespace Infrastructure.UnitOfWork
         private IDbTransaction transaction;
         private IDbConnection connection;
 
-        private IPacienteRepository pacienteRepository;
+        private IClienteRepository clienteRepository;
         private IServicioCitaRepository servicioCitaRepository;
         private IServicioRepository servicioRepository;
-        private IFacturaRepository facturaRepository;
         private ICitaRepository citaRepository;
-        private IDentistaRepository dentistaRepository;
+        private IDoctorRepository doctorRepository;
+        private IMostrarCitaActualClienteRepository mostrarCitaActualClienteRepository;
 
-        public IDentistaRepository DentistaRepository
+
+        public IDoctorRepository DoctorRepository
         {
             get
             {
-                return dentistaRepository ?? (dentistaRepository = new DentistaRepository(transaction));
+                return doctorRepository ?? (doctorRepository = new DoctorRepository(transaction));
             }
         }
         public ICitaRepository CitaRepository
@@ -35,14 +36,6 @@ namespace Infrastructure.UnitOfWork
             get
             {
                 return citaRepository ?? (citaRepository = new CitaRepository(transaction));
-            }
-        }
-        
-        public IFacturaRepository FacturaRepository
-        {
-            get
-            {
-                return facturaRepository ?? (facturaRepository = new FacturaRepository(transaction));
             }
         }
         
@@ -69,11 +62,19 @@ namespace Infrastructure.UnitOfWork
             transaction = connection.BeginTransaction();
         }
 
-        public IPacienteRepository PacienteRepository
+        public IClienteRepository ClienteRepository
         {
             get
             {
-                return pacienteRepository ?? (pacienteRepository = new PacienteRepository(transaction));
+                return clienteRepository ?? (clienteRepository = new ClienteRepository(transaction));
+            }
+        }
+
+        public IMostrarCitaActualClienteRepository MostrarCitaActualClienteRepository
+        {
+            get
+            {
+                return mostrarCitaActualClienteRepository ?? (mostrarCitaActualClienteRepository = new MostrarCitaActualClienteRepository(transaction));
             }
         }
 

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repository.IRepository
 {
-    public interface IDentistaRepository:IGenericRepository<Dentista>
+    public interface IClienteRepository:IGenericRepository<Cliente>
     {
-        Dentista LogIn(Dentista dentista);
+        Cliente LogIn(Cliente paciente);
     }
 }

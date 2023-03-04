@@ -21,6 +21,20 @@ namespace Application.Tellodent.Controllers
             return Ok(cita);
         }
 
+        [HttpGet("{id}")]
+        public Cita GetCita(int id)
+        {
+            var cita1 = unitOfWork.CitaRepository.GetById(id);
+            return cita1;
+        }
+
+        [HttpGet("{id}")]
+        public Cita GetProximaCita(int idCliente)
+        {
+            var cita1 = unitOfWork.CitaRepository.ProximaCita(idCliente);
+            return cita1;
+        }
+
         [HttpPost]
         public IActionResult InsertCita(Cita cita)
         {
@@ -38,5 +52,7 @@ namespace Application.Tellodent.Controllers
             unitOfWork.Commit();
             return Ok(citaux);
         }
+
+
     }
 }

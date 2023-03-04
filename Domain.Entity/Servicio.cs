@@ -11,10 +11,11 @@ namespace Domain.Entity
     [Table("SERVICIO")]
     public class Servicio
     {
-        [Key] 
+        [Key]
         public int ServicioId { get; set; }
+        public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public decimal Precio { get; set; }
-        public int EsSuscripcion { get; set; }
+        public int Duracion { get; set; }
+        public double Precio { get; set; }
     }
 }
