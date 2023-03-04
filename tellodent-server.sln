@@ -13,15 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{F850
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{B0221474-B0B6-4D39-9AD8-2C528268D752}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Domain.Entity\Entity.csproj", "{C3EBCEA1-8E16-4F41-8147-31DC4AE16AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entity", "Domain.Entity\Entity.csproj", "{C3EBCEA1-8E16-4F41-8147-31DC4AE16AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Repository", "Infrastructure.Repository\Infrastructure.Repository.csproj", "{3EAE81BA-B9E2-4282-B5A5-AD3370577592}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Repository", "Infrastructure.Repository\Infrastructure.Repository.csproj", "{3EAE81BA-B9E2-4282-B5A5-AD3370577592}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.UnitOfWork", "Infrastructure.UnitOfWork\Infrastructure.UnitOfWork.csproj", "{14F757E2-A17C-4D5C-A32B-74A4A28AA6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.UnitOfWork", "Infrastructure.UnitOfWork\Infrastructure.UnitOfWork.csproj", "{14F757E2-A17C-4D5C-A32B-74A4A28AA6AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tellodent", "Application.Tellodent\Application.Tellodent.csproj", "{513ED8CB-E8E6-4C87-933C-2E581C3A4758}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Tellodent", "Application.Tellodent\Application.Tellodent.csproj", "{513ED8CB-E8E6-4C87-933C-2E581C3A4758}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tellodent.Helpers", "Tellodent.Helpers\Tellodent.Helpers.csproj", "{AFEE2834-C780-4E81-9AB1-983C7EAF69D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tellodent.Helpers", "Tellodent.Helpers\Tellodent.Helpers.csproj", "{AFEE2834-C780-4E81-9AB1-983C7EAF69D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

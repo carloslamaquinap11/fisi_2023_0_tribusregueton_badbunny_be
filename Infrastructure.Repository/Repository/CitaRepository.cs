@@ -16,7 +16,7 @@ namespace Infrastructure.Repository.Repository
         {
 
         }
-
+        
         public Cita ProximaCita(int idCliente)
         {
             var linq = Connection.Query("MostrarCitaActualCliente @ClienteId", new { @ClienteId = idCliente }, Transaction).ToList();

@@ -1,6 +1,9 @@
-﻿using Domain.Entity;
+﻿using Application.Tellodent.ViewModel;
+using Domain.Entity;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Application.Tellodent.Controllers
 {
@@ -21,14 +24,14 @@ namespace Application.Tellodent.Controllers
             return Ok(cita);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetCita/{id}")]
         public Cita GetCita(int id)
         {
             var cita1 = unitOfWork.CitaRepository.GetById(id);
             return cita1;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetProximaCita/{id}")]
         public Cita GetProximaCita(int idCliente)
         {
             var cita1 = unitOfWork.CitaRepository.ProximaCita(idCliente);
@@ -53,6 +56,42 @@ namespace Application.Tellodent.Controllers
             return Ok(citaux);
         }
 
+        [HttpGet("GetCitaByClienteId/{id}")]
+        public IActionResult GetCitaByClienteId(int id)
+        {
+            
+            var listaCitaViewModel = new List<CitaViewModel>();
 
+            var citasCliente = unitOfWork.CitaRepository.GetAll();
+            if (citasCliente!=null)
+            {
+                citasCliente = citasCliente.Where(x => x.ClienteId == id).ToList();
+                foreach (var cita in citasCliente)
+                {
+                    var repoServicioCita = unitOfWork.ServicioCitaRepository.GetAll();
+                    if (repoServicioCita!=null)
+                    {
+                        var servicioCita = repoServicioCita.Where(x => x.CitaId == cita.CitaId).FirstOrDefault();
+                        var servicio = unitOfWork.ServicioRepository.GetAll().Where(x=>x.ServicioId==servicioCita.ServicioId).FirstOrDefault();
+
+                        var citaViewModel = new CitaViewModel();
+                        citaViewModel.CitaId=cita.CitaId;
+                        citaViewModel.NombreDoctor = cita.NombreDoctor;
+                        citaViewModel.FechaCita = string.Format("{0}:dd/MM/yyyy", cita.FechaCita);
+                        citaViewModel.HoraCita = cita.HoraCita.ToString();
+                        citaViewModel.Observacion = "Sin observación";
+                        citaViewModel.NombreServicio = servicio.Nombre;
+
+                        listaCitaViewModel.Add(citaViewModel);
+                    }
+
+                }
+
+
+
+            }
+
+            return Ok(listaCitaViewModel);
+        }
     }
 }
