@@ -15,14 +15,11 @@ namespace Infrastructure.UnitOfWork
     {
         private IDbTransaction transaction;
         private IDbConnection connection;
-
         private IClienteRepository clienteRepository;
         private IServicioCitaRepository servicioCitaRepository;
         private IServicioRepository servicioRepository;
         private ICitaRepository citaRepository;
         private IDoctorRepository doctorRepository;
-        private IMostrarCitaActualClienteRepository mostrarCitaActualClienteRepository;
-
 
         public IDoctorRepository DoctorRepository
         {
@@ -67,14 +64,6 @@ namespace Infrastructure.UnitOfWork
             get
             {
                 return clienteRepository ?? (clienteRepository = new ClienteRepository(transaction));
-            }
-        }
-
-        public IMostrarCitaActualClienteRepository MostrarCitaActualClienteRepository
-        {
-            get
-            {
-                return mostrarCitaActualClienteRepository ?? (mostrarCitaActualClienteRepository = new MostrarCitaActualClienteRepository(transaction));
             }
         }
 

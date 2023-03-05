@@ -68,7 +68,7 @@
                     "defaultSslBinding": true
                   }
                 ],
-                "publicIPAddresses": [
+                "publicIPresses": [
                   "20.62.137.156"
                 ],
                 "privateIPAddresses": null,

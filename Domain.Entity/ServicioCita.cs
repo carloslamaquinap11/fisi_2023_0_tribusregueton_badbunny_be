@@ -17,7 +17,7 @@ namespace Domain.Entity
         public int ServicioId { get; set; }
         public DateTime FechaServiciocita { get; set; }
         public double PrecioServiciocita { get; set; }
-        public string Estado { get; set; }
+        public int Estado { get; set; }
         public string descripcion { get; set; }
     }
 }
