@@ -13,7 +13,7 @@ namespace Domain.Entity
     {
         [Key]
         public int ClienteId { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public string Dni { get; set; }
         public string Nombres { get; set; }
         public string Apepat { get; set; }

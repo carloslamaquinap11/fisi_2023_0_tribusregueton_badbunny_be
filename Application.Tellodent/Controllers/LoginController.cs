@@ -21,7 +21,7 @@ namespace Application.Tellodent.Controllers
             return login;
         }
 
-        [HttpGet("SignIn")]
+        [HttpPost("SignIn")]
         public IActionResult SignIn(string email,string pass)
         {
             var Login = new Login { Email = email,Password = pass};
