@@ -20,7 +20,15 @@ namespace Infrastructure.UnitOfWork
         private IServicioRepository servicioRepository;
         private ICitaRepository citaRepository;
         private IDoctorRepository doctorRepository;
+        private ILoginRepository loginRepository;
 
+        public ILoginRepository LoginRepository
+        {
+            get
+            {
+                return loginRepository ?? (loginRepository = new LoginRepository(transaction));
+            }
+        }
         public IDoctorRepository DoctorRepository
         {
             get

@@ -15,6 +15,7 @@ namespace Infrastructure.UnitOfWork
         public IClienteRepository ClienteRepository { get; }
         public IServicioRepository ServicioRepository { get; }
         public IServicioCitaRepository ServicioCitaRepository { get; }
+        public ILoginRepository LoginRepository { get; }
         public void Commit();
     }
 }
